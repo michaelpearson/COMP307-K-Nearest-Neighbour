@@ -94,6 +94,11 @@ public class DataPoint {
         return Math.pow(number, 2);
     }
 
+    /**
+     * Find the euclidean distance from the parameter dp
+     * @param dp the datapoint to compare this one to
+     * @return
+     */
     public double findDistance(DataPoint dp) {
         return Math.sqrt(square(dp.petalLength - petalLength) + square(dp.petalWidth - petalWidth) + square(dp.sepalWidth - sepalWidth) + square(dp.sepalLength - sepalLength));
     }
