@@ -5,20 +5,22 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DataPoint {
-    private double sepalLength;
-    private double sepalWidth;
-    private double petalLength;
-    private double petalWidth;
+    protected double sepalLength;
+    protected double sepalWidth;
+    protected double petalLength;
+    protected double petalWidth;
     private DataPointClassification classification;
 
 
-    private DataPoint(double sepalLength, double sepalWidth, double petalLength, double petalWidth, DataPointClassification classification) {
+    protected DataPoint(double sepalLength, double sepalWidth, double petalLength, double petalWidth, DataPointClassification classification) {
         this.sepalLength = sepalLength;
         this.sepalWidth = sepalWidth;
         this.petalLength = petalLength;
         this.petalWidth = petalWidth;
         this.classification = classification;
     }
+
+    public DataPoint() {}
 
     public double getSepalLength() {
         return sepalLength;
@@ -81,13 +83,11 @@ public class DataPoint {
 
     @Override
     public String toString() {
-        return "DataPoint{" +
-                "sepalLength=" + sepalLength +
+        return "sepalLength=" + sepalLength +
                 ", sepalWidth=" + sepalWidth +
                 ", petalLength=" + petalLength +
                 ", petalWidth=" + petalWidth +
-                ", classification=" + classification +
-                '}';
+                ", classification=" + classification;
     }
 
     private double square(double number) {

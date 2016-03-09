@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class Classifier {
 
     public static void main(String[] args) {
         DataPoint[] trainingSet = DataPoint.parseFile(args[0]);
@@ -11,7 +11,7 @@ public class Main {
 
 
         for(DataPoint dp : testSet) {
-            DataPointClassification classification = classify(trainingSet, dp, 1);
+            DataPointClassification classification = classify(trainingSet, dp, 3);
             boolean correct = classification == dp.getClassification();
             System.out.printf("%s -> classifies as: %s, which is %s\n", dp.toString(), classification.toString(), correct ? "Correct" : "Incorrect");
             if(correct) {
