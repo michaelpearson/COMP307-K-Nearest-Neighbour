@@ -11,7 +11,7 @@ public class Classifier {
 
 
         for(DataPoint dp : testSet) {
-            DataPointClassification classification = classify(trainingSet, dp, 3);
+            DataPointClassification classification = classify(trainingSet, dp, 5);
             boolean correct = classification == dp.getClassification();
             System.out.printf("%s -> classifies as: %s, which is %s\n", dp.toString(), classification.toString(), correct ? "Correct" : "Incorrect");
             if(correct) {

@@ -9,6 +9,13 @@ public class DataPoint {
     protected double sepalWidth;
     protected double petalLength;
     protected double petalWidth;
+
+    private static double maxPetalLength = 0;
+    private static double maxPetalWidth = 0;
+    private static double maxSepalLength = 0;
+    private static double maxSepalWidth = 0;
+
+
     private DataPointClassification classification;
 
 
@@ -18,6 +25,18 @@ public class DataPoint {
         this.petalLength = petalLength;
         this.petalWidth = petalWidth;
         this.classification = classification;
+        if(maxPetalLength < petalLength) {
+            maxPetalLength = petalLength;
+        }
+        if(maxPetalWidth < petalWidth) {
+            maxPetalWidth = petalWidth;
+        }
+        if(maxSepalLength < sepalLength) {
+            maxSepalLength = sepalLength;
+        }
+        if(maxSepalWidth < sepalWidth) {
+            maxSepalWidth = sepalWidth;
+        }
     }
 
     public DataPoint() {}
@@ -100,6 +119,9 @@ public class DataPoint {
      * @return
      */
     public double findDistance(DataPoint dp) {
-        return Math.sqrt(square(dp.petalLength - petalLength) + square(dp.petalWidth - petalWidth) + square(dp.sepalWidth - sepalWidth) + square(dp.sepalLength - sepalLength));
+        return Math.sqrt((square(dp.petalLength - petalLength) / maxPetalLength) +
+                (square(dp.petalWidth - petalWidth) / maxPetalWidth) +
+                (square(dp.sepalWidth - sepalWidth) / maxSepalWidth) +
+                (square(dp.sepalLength - sepalLength) / maxSepalLength));
     }
 }
